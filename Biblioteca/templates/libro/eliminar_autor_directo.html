@@ -1,0 +1,13 @@
+{%extends 'index.html'%}
+
+{%block title%} 
+    Eliminacion de Autores
+{%endblock title%}
+
+{%block body%}
+<form method="POST">
+    <h2>Desea eliminar el registro {{autor.nombre}}</h2>
+        <button type="submit">Eliminar</button>
+        <button type="submit" url="{%url 'libro:listar_autor'%}">Cancelar</button>
+</form>
+{%endblock body%}

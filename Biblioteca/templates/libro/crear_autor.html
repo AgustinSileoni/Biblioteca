@@ -1,11 +1,16 @@
-{% extends 'index.html' %}
+{%extends 'index.html' %}
 
 {%block title%}
     Creacion de Autores
 {%endblock title%}
+
 {%block body%}
-    <form method="POST">
-    {{autor_form.as_p}}
-    <button type="submit">Crear</button>
-    </form>
+<form method="POST">
+    {%if error%}
+        <h2>{{error}}</h2>
+    {%else%}
+        {{autor_form.as_p}}
+        <button type="submit">Crear</button>
+    {%endif%}
+</form>
 {%endblock body%}
