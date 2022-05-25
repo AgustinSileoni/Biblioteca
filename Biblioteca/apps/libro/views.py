@@ -11,13 +11,14 @@ def Home(request):
     return render(request, 'index.html')
 
 def crearAutor(request):
+    print(request.POST)
     if request.method == 'POST':  #Si el metodo utilizado es post
-        autor_form = AutorForm(request.POST)  ##Relleno autor_form con los datos del POST
-        if autor_form.is_valid():   ##Verifica que los datos ingresados sean validos (Propio de form)
-            autor_form.save()   ##Guarda los datos (Propio de form)
-            return redirect('index') ##Me redirige a una url
-    else:
-        autor_form = AutorForm()
+        autor_form = AutorForm(request.POST)
+        if autor_form.is_valid():
+            autor_form.save()
+            return redirect('index')
+        else:
+            autor_form = AutorForm()
     return render(request, 'libro/crear_autor.html',{'autor_form':autor_form})
 
 def listarAutor(request):

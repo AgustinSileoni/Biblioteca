@@ -6,10 +6,18 @@
 
 {%block body%}
 <form method="POST">
+    {% csrf_token%}
     {%if error%}
         <h2>{{error}}</h2>
     {%else%}
-        {{autor_form.as_p}}
+        <label>Nombres</label>
+        <input type="text" name="nombre">
+        <label>Apellido</label>
+        <input type="text" name="apellido">
+        <label>Nacionalidad</label>
+        <input type="text" name="nacionalidad">
+        <label>Descripcion</label>
+        <input type="text" name="descripcion">
         <button type="submit">Crear</button>
     {%endif%}
 </form>
